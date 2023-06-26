@@ -1,0 +1,18 @@
+{
+    "github":{
+        "clientId": "Batman",
+        "secret": "Bruce Wayne"
+    },
+    "mysql":{
+        "host": "Hosty McHostface",
+        "user": "Jimmy Jim",
+        "password": "pass",
+        "database": "my beautiful mind",
+        "port": "13666"
+    },
+    "mongo":{
+        "host": "mongo bongo",
+        "port": "12345",
+        "db": "doobi-doobi"
+    }
+}
