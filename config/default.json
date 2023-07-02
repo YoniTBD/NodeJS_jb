@@ -10,9 +10,9 @@
         "database": "mydb",
         "port": 3306
     },
-    "mongo":{
-        "host": "mongo bongo",
-        "port": "12345",
-        "db": "doobi-doobi"
+    "mongo": {
+        "host": "localhost",
+        "port": 27017,
+        "db": "mymongo"
     }
 }

@@ -16,7 +16,7 @@ const addSymbol = async (req, res, next) => {
 }
 
 const welcome  = (req, res, next) => {
-    res.render('users/welcome')
+    res.send("who the fuck are you??");
 }
 
 const logout  = (req, res, next) => {
