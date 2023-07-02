@@ -12,7 +12,15 @@ class UserSymbol {
             symbol,
         ]);
     };
-        
+    
+    async findByUserId ({userId}) {
+        return this.db.execute(`
+            select * from users_symbols where user_id = ?
+        `,[
+            userId,
+        ]);    
+    };
+    
 }
 
 

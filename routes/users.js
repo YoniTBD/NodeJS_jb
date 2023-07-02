@@ -1,21 +1,25 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router()
+const { 
+    addSymbol, 
+    welcome, 
+    dashboard, 
+    logout,
+} = require('../controllers/users/users_controller');
+const { addSymbolValidator } = require('../controllers/users/users_validators');
+const { middleware: db } = require('../middlewares/db');
+const enforeAuth = require('../middlewares/enforce-auth');
+const enforceGuest = require('../middlewares/enforce-guest');
+const mongo = require('../middlewares/mongo');
 
-const { addSymbol } = require('../controllers/users/users_controller');
-const { validator } = require('../controllers/users/users_validator');
 const joi = require('../middlewares/joi');
-const enforceAuth = require('../middlewares/enforce-auth');
 
-const dashboard = (req, res, next) => {
-    res.send("Ahhh! it's you! welcome back!")
-}
+router.use(db);
+router.use(mongo);
+router.get('/welcome', enforceGuest, welcome);
+router.get('/dashboard', enforeAuth, dashboard);
+router.get('/logout', enforeAuth, logout);
 
-const logout = (req, res, next) => {
-    res.send("piss off then! never liked you anyway")
-}
-
-router.get('/dashboard', enforceAuth, dashboard);
-router.get('/logout', enforceAuth, logout);
-router.post('/symbol', joi(validator), addSymbol);
+router.post('/symbol', joi(addSymbolValidator), addSymbol);
 
 module.exports = router;

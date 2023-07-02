@@ -9,14 +9,14 @@ const addSymbol = async (req, res, next) => {
             userId: req.user.id,
             symbol: req.body.symbol,
         });
-        res.send('symbol added');
+        res.redirect('/users/dashboard');
     } catch (err) {
         next(err);
     }
 }
 
 const welcome  = (req, res, next) => {
-    res.send("who the fuck are you??");
+    res.render('users/welcome');
 }
 
 const logout  = (req, res, next) => {
